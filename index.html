@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Kneisel Hall Scheduling Software</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+
+<div class="pagebox" id="pagebox0">
+	<h1>🎼 ♫ Kneisel Hall Scheduling Software ♫ ♪</h1>
+	<h3>Rumor has it that a leading chamber music festival always comes with leading technology...</h3>
+	<hr>
+	<p>This is a complete remake of the scheduling software based on Melody Chan's prototype with a newly built UI so everyone can use it, even if you are very far from being geeky.</p>
+
+	<p>In short, this program takes in all the necessary information and automatically generates scheduling tables that you can either print directly from the browser or copy paste to a text editor (ex: MS word or OSX Pages).</p>
+
+	<p>Please follow the instructions until the very end and <em>DO NOT REFRESH THE PAGE </em> as you go along. If you do so you might have to go over from the very start again. Make sure all your inputs are correct before you press 'move on'.</p>
+
+
+
+
+	<p>by Phyllis Yen. KH alum 2015. </p>
+	<p>In memory of Mr. Lipkin, and the most wonderful time I have spent in the States.</p>
+
+
+
+	<div class="buttonDiv">
+		<button class="proceed">Got it! Let's go...</button>
+	</div>
+
+</div>
+
+<div class="pagebox" id="pagebox1">
+
+	<div class="stepbox">
+
+		<div class="steps">
+			<h1>Step 1: Input all the student names</h1>
+		</div>
+
+
+		<div class="container vn">
+			<h1>violin</h1>
+			<input type="text" placeholder="Click to add a new violinist's name here and press enter">
+
+			<ul> 
+
+			</ul>
+		</div>
+
+		<div class="container va">
+			<h1>viola</h1>
+			<input type="text" placeholder="Click to add a new violist's name here and press enter">
+
+			<ul>
+
+			</ul>
+		</div>
+
+
+		<div class="container vc">
+			<h1>cello</h1>
+			<input type="text" placeholder="Click to add a new cellist's name here and press enter">
+
+			<ul>
+
+			</ul>
+		</div>
+
+		<div class="container pn">
+			<h1>piano</h1>
+			<input type="text" placeholder="Click to add a new pianist's name here and press enter">
+
+			<ul>
+
+			</ul>
+		</div>
+
+		<div class="container bs">
+			<h1>string bass</h1>
+			<input type="text" placeholder="Click to add a new bassist's name here and press enter">
+
+			<ul>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class="buttonDiv">
+		<button class="proceed">Everyone's here! Let's move on...</button>
+	</div>
+
+</div>
+
+
+
+
+<div class="pagebox" id="pagebox2">
+	<div class="stepbox">
+
+		<div class="steps">
+			<h1>Step 2: Input all the coach names</h1>
+		</div>
+
+
+		<div class="container MW">
+			<h1>Coaches (Monday/Wednesday)</h1>
+			<input type="text" placeholder="Click to add a new coach name here and press enter">
+
+			<ul>
+
+			</ul>
+		</div>
+
+		<div class="container TT">
+			<h1>Coaches (Tuesday/Thursday)</h1>
+			<input type="text" placeholder="Click to add a new coach name here and press enter">
+
+			<ul>
+
+			</ul>
+		</div>
+
+	</div>
+
+	<div class="buttonDiv">
+		<button class="proceed">All the coaches are here! Let's move on...</button>
+	</div>
+
+</div>
+
+
+
+
+
+	
+
+
+<div class="pagebox" id="pagebox3">
+	<div class="stepbox">
+
+		<div class="steps">
+			<h1>Step 3: What works are to be played?</h1>
+		</div>
+
+		<div class="container rep">
+			<h1>please input as "composer name: work name"</h1>
+			<input type="text" placeholder="Click to add a new work here (e.g. W. A. Mozart: String Quintet in D Major K. 593) and press enter">
+			<ul>
+
+			</ul>
+		</div>
+
+	</div>
+
+	<p>Note: If a group rehearses/will be coached two works in one time slot, as occasionally happens, either because both works are short or for other reasons, please input them as one, seperated by a colon, e.g. "Helps: Nocturne for String Quartet; Wuorinen: Josquiniana".</p>
+	
+	<h2>There are <span>___</span> groups. Make sure that's correct before continuing!</h2>
+	<div class="buttonDiv">
+		<button class="proceed">All the works are here! Let's move on...</button>
+	</div>
+
+</div>
+
+
+
+<div class="pagebox" id="pagebox4">
+
+	<div class="stepbox">
+		<div class="steps">
+			<h1>Step 4: For each work, please click on the coach and the students to select them, and then press "submit".</h1>
+		</div>
+
+		<div class="container fillgroup">
+			<h1>Piece</h1>
+			<ul>Group Members:</ul>
+		</div>
+
+		<div id="personTableContainer">
+			<table id="personTable">
+				<tr>
+					<th>Coach</th>
+					<th>Violin</th>
+					<th>Viola</th>
+					<th>Cello</th>
+					<th>Piano</th>
+					<th>String Bass</th>
+				</tr>
+			</table>
+		</div>
+
+
+	</div>	
+	<p>*Note: Click on a name to select, and click again to unselect.</p>
+	
+	<p>*Note: The order of input matters. If, say, a string quintet is played by Mia Dietrich, Alice Hong, violins; Rachyl Duffy, Mei-Chun Chen, violas; Ye Young Yoo, cellos; please click on the names according to the order of appearance, i.e. click first on Mia Dietrich, and then Alice Hong, and then Rachyl Duffy, and then Mei-Chun Chen, and then Ye Young Yoo. That's the only way this program knows Mia is on first violin and Alice is on second violin, etc etc. The program is not yet smart enough to know who is a fit for first violin and who is not...</p>
+	<div class="buttonDiv">
+		<button class="proceed">All done! Let's move on... (It may take from a few seconds to a minute)</button>
+	</div>
+
+</div>
+
+
+<div class="pagebox" id="pagebox5">
+
+	<div class="stepbox">
+		<div class="steps">
+			<h1>Step 5: Please fill in the <u>rehearsal</u> times and studios below. Do not print now, as a complete timetable will be automatically generated later; simply fill in the blanks now. When all the fields are filled, click on the 'Done' button on the bottom of the page.</h1>
+		</div>
+
+	
+		<div class="container">
+
+<!-- 		<ul>
+					<h2>Time Slot 1:</h2>
+					<input type="text" class="slotTime" placeholder="please click here to enter the time, e.g. 9:00~10:30">
+			</ul>
+
+			<ul>
+					<h2>Time Slot 2:</h2>
+					<input type="text" class="slotTime" placeholder="please click here to enter the time, e.g. 10:30~12:00">
+			</ul>
+
+			<ul>
+					<h2>Time Slot 3:</h2>
+					<input type="text" class="slotTime" placeholder="please click here to enter the time, e.g. 18:30~20:00">
+			</ul>
+ -->
+
+
+		</div>	
+
+	</div>
+	<p class="urgent">If you want a backup of this page as a reference, be sure to print this page (right click on the page and then select print) after filling it up before proceeding.</p>
+
+	<div class="buttonDiv">
+		<button class="proceed">Done! Let's move on...</button>
+	</div>
+
+</div>
+
+
+
+
+<div class="pagebox" id="pagebox6">
+	<div class="stepbox">
+		<div class="steps">
+			<h1>Step 6: Please fill in the <u>coaching</u> times and studios below for <u>Monday and Wednesday</u>. Do not print now, as a complete timetable will be automatically generated later; simply fill in the blanks now. When all the fields are filled, click on the 'Done' button on the bottom of the page.</h1>
+		</div>
+
+	
+		<div class="container">
+
+<!-- 		<ul>
+					<h2>Time Slot 1:</h2>
+					<input type="text" class="slotTime" placeholder="please click here to enter the time, e.g. 13:00~14:00">
+			</ul>
+
+			<ul>
+					<h2>Time Slot 2:</h2>
+					<input type="text" class="slotTime" placeholder="please click here to enter the time, e.g. 14:00~15:00">
+			</ul>
+
+			<ul>
+					<h2>Time Slot 3:</h2>
+					<input type="text" class="slotTime" placeholder="please click here to enter the time, e.g. 15:00~16:00">
+			</ul> -->
+
+
+
+		</div>	
+
+	</div>
+	
+	<p class="urgent">If you want a backup of this page as a reference, be sure to print this page (right click on the page and then select print) after filling it up before proceeding.</p>
+
+	<div class="buttonDiv">
+		<button class="proceed">Done! Let's move on...</button>
+	</div>
+
+</div>
+
+
+
+
+
+
+<div class="pagebox" id="pagebox7">
+
+	<div class="stepbox">
+		<div class="steps">
+			<h1>Step 7: Please fill in the <u>coaching</u> times and studios below for <u>Tuesday and Thursday</u>. Do not print now, as a complete timetable will be automatically generated later; simply fill in the blanks now. When all the fields are filled, click on the 'Done' button on the bottom of the page.</h1>
+		</div>
+
+	
+		<div class="container">
+
+<!-- 		<ul>
+					<h2>Time Slot 1:</h2>
+					<input type="text" class="slotTime">
+			</ul>
+
+			<ul>
+					<h2>Time Slot 2:</h2>
+					<input type="text" class="slotTime">
+			</ul>
+
+			<ul>
+					<h2>Time Slot 3:</h2>
+					<input type="text" class="slotTime">
+			</ul>
+
+
+ -->
+		</div>	
+
+	</div>
+	<p class="urgent">If you want a backup of this page as a reference, be sure to print this page (right click on the page and then select print) after filling it up before proceeding.</p>
+
+	<div class="buttonDiv">
+		<button class="proceed">Done! Let's move on...</button>
+	</div>
+
+</div>
+
+
+<div class="pagebox" id="pagebox8">
+<h1>Be sure to save this table before closing this page !</h1>
+<hr>
+
+</div>
+
+<script type="text/javascript" src="scripts/schedule.js"></script>
+</body>
+</html>
