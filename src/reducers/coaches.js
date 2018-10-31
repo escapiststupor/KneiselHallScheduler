@@ -1,4 +1,4 @@
-// import { ADD_COACH, DELETE_COACH, MODIFY_COACH } from './actions';
+import { ADD_COACH, DELETE_COACH, MODIFY_COACH } from '../actions';
 
 export default function groups(state = {}, action) {
   switch (action.type) {

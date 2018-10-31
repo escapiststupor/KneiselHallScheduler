@@ -1,4 +1,4 @@
-// import { ADD_STUDENT, DELETE_STUDENT, MODIFY_STUDENT } from './actions';
+import { ADD_STUDENT, DELETE_STUDENT, MODIFY_STUDENT } from '../actions';
 
 export default function students(state = {}, action) {
   switch (action.type) {
