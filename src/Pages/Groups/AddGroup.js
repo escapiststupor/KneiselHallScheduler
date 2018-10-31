@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import values from 'lodash/values';
-import AutoSuggestCoach from './AutoSuggestCoach';
 import { getHashID } from '../../utils';
 
 const initialState = {
@@ -33,7 +31,6 @@ class AddGroup extends Component {
 
   render() {
     const { work, coach, err } = this.state;
-    const { coachList } = this.props;
     return (
       <div>
         <input
