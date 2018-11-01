@@ -5,16 +5,16 @@ export const ADD_COACH = 'ADD_COACH';
 export const addCoach = createAction(ADD_COACH);
 export const DELETE_COACH = 'DELETE_COACH';
 export const deleteCoach = createAction(DELETE_COACH);
-export const MODIFY_COACH = 'MODIFY_COACH';
-export const modifyCoach = createAction(MODIFY_COACH);
+export const DELETE_ALL_COACHES = 'DELETE_ALL_COACHES';
+export const deleteAllCoaches = createAction(DELETE_ALL_COACHES);
 
 // for students
 export const ADD_STUDENT = 'ADD_STUDENT';
 export const addStudent = createAction(ADD_STUDENT);
 export const DELETE_STUDENT = 'DELETE_STUDENT';
 export const deleteStudent = createAction(DELETE_STUDENT);
-export const MODIFY_STUDENT = 'MODIFY_STUDENT';
-export const modifyStudent = createAction(MODIFY_STUDENT);
+export const DELETE_ALL_STUDENTS = 'DELETE_ALL_STUDENTS';
+export const deleteAllStudents = createAction(DELETE_ALL_STUDENTS);
 
 // for groups
 export const CREATE_GROUP = 'CREATE_GROUP';

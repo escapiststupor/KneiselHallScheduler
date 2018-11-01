@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addCoach, deleteCoach, modifyCoach } from '../../actions';
+import { addCoach, deleteCoach, deleteAllCoaches } from '../../actions';
 import AddCoach from './AddCoach';
 
 class Coaches extends Component {
   render() {
-    const { coachList, coachIDs, addCoach, deleteCoach } = this.props;
+    const {
+      coachList,
+      coachIDs,
+      addCoach,
+      deleteCoach,
+      deleteAllCoaches,
+    } = this.props;
     return (
       <React.Fragment>
         <AddCoach onAdd={addCoach} />
+        <button type="button" onClick={() => deleteAllCoaches()}>
+          delete all
+        </button>
         {coachIDs.map(ID => (
           <div key={ID}>
             teacher: {coachList[ID].name}
@@ -33,7 +42,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   addCoach,
   deleteCoach,
-  modifyCoach,
+  deleteAllCoaches,
 };
 
 export default connect(
