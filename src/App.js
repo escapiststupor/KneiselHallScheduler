@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const AppRouter = () => (
+const App = () => (
   <ThemeProvider theme={{ fontFamily: 'Helvetica Neue' }}>
     <React.Fragment>
       <Navigation />
@@ -17,4 +17,4 @@ const AppRouter = () => (
   </ThemeProvider>
 );
 
-export default AppRouter;
+export default App;
