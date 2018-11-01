@@ -5,6 +5,7 @@ import {
   makeRehearsalGraph,
   tryScheduling,
 } from '../modules/scheduler';
+import { COACHING_TIMESLOT, REHEARSAL_TIMESLOT } from '../constants';
 
 class Schedule extends Component {
   state = {
@@ -41,6 +42,11 @@ class Schedule extends Component {
     });
   };
 
+  getGroupNameByID = ID => {
+    const { groupList } = this.props;
+    return groupList[ID].work;
+  };
+
   makeMWTable = () => {
     const { solution_MW, groupMWIDs } = this.state;
     console.log('solution_MW', solution_MW);
@@ -49,7 +55,8 @@ class Schedule extends Component {
       <React.Fragment>
         {groupMWIDs.map((groupID, i) => (
           <div key={groupID}>
-            group {groupID} coaches on MW on timeslot {solution_MW[i]}
+            group {this.getGroupNameByID(groupID)} coaches on MW{' '}
+            {COACHING_TIMESLOT[solution_MW[i]]}
           </div>
         ))}
       </React.Fragment>
@@ -64,7 +71,8 @@ class Schedule extends Component {
       <React.Fragment>
         {groupTTIDs.map((groupID, i) => (
           <div key={groupID}>
-            group {groupID} coaches on TT on timeslot {solution_TT[i]}
+            group {this.getGroupNameByID(groupID)} coaches on TT{' '}
+            {COACHING_TIMESLOT[solution_TT[i]]}
           </div>
         ))}
       </React.Fragment>
@@ -79,7 +87,8 @@ class Schedule extends Component {
       <React.Fragment>
         {groupIDs.map((groupID, i) => (
           <div key={groupID}>
-            group {groupID} rehearses everyday on timeslot {solution_RE[i]}
+            group {this.getGroupNameByID(groupID)} rehearses everyday{' '}
+            {REHEARSAL_TIMESLOT[solution_RE[i]]}
           </div>
         ))}
       </React.Fragment>

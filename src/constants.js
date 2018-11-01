@@ -1,7 +1,7 @@
 export const REHEARSAL_TIMESLOT = {
   1: '9:00 ~ 10:30',
   2: '10:30 ~ 12:00',
-  3: '18:30 ~ 20:00',
+  3: '19:00 ~ 20:30',
 };
 
 export const COACHING_TIMESLOT = {
