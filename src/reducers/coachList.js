@@ -1,5 +1,5 @@
 import omit from 'lodash/omit';
-import { ADD_COACH, DELETE_COACH } from '../actions';
+import { ADD_COACH, DELETE_COACH, DELETE_ALL_COACHES } from '../actions';
 
 export default function coachList(state = {}, action) {
   switch (action.type) {
@@ -10,6 +10,8 @@ export default function coachList(state = {}, action) {
       };
     case DELETE_COACH:
       return omit(state, [action.payload]);
+    case DELETE_ALL_COACHES:
+      return {};
     default:
       return state;
   }

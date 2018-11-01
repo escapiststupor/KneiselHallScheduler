@@ -8,27 +8,32 @@ class Groups extends Component {
     const {
       groupList,
       groupIDs,
-      coachList,
-      coachIDs,
       createGroup,
       deleteGroup,
+      coachList,
+      studentList,
     } = this.props;
     return (
       <React.Fragment>
-        <AddGroup
-          onAdd={createGroup}
-          coachList={coachList}
-          coachIDs={coachIDs}
-        />
+        <AddGroup onAdd={createGroup} />
         {groupIDs.map(ID => (
           <div key={ID}>
             work: {groupList[ID].work}
-            members: {groupList[ID].members}
-            coach: {groupList[ID].coach}
+            members:
+            <ul>
+              {groupList[ID].members.map(studentID => (
+                <li key={studentID}>
+                  {studentList[studentID].name},
+                  {studentList[studentID].instrument}
+                </li>
+              ))}
+            </ul>
+            coach: {coachList[groupList[ID].coachID].name}
             delete:
             <button type="button" onClick={() => deleteGroup(ID)}>
-              -
+              delete group
             </button>
+            <hr />
           </div>
         ))}
       </React.Fragment>
@@ -41,6 +46,7 @@ const mapStateToProps = state => ({
   groupIDs: state.groups.groupIDs,
   coachList: state.coaches.coachList,
   coachIDs: state.coaches.coachIDs,
+  studentList: state.students.studentList,
 });
 
 const mapDispatchToProps = {

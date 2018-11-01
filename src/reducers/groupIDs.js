@@ -1,11 +1,4 @@
-import {
-  CREATE_GROUP,
-  DELETE_GROUP,
-  SET_WORK,
-  SET_COACH,
-  SET_MEMBERS,
-  SET_REHEARSAL_PLACE,
-} from '../actions';
+import { CREATE_GROUP, DELETE_GROUP } from '../actions';
 // from UI
 
 import { SET_REHEARSAL_TIME, SET_GROUPING_TIME } from '../actions';

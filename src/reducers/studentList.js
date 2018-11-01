@@ -1,5 +1,5 @@
 import omit from 'lodash/omit';
-import { ADD_STUDENT, DELETE_STUDENT } from '../actions';
+import { ADD_STUDENT, DELETE_STUDENT, DELETE_ALL_STUDENTS } from '../actions';
 
 export default function studentList(state = {}, action) {
   switch (action.type) {
@@ -10,6 +10,8 @@ export default function studentList(state = {}, action) {
       };
     case DELETE_STUDENT:
       return omit(state, [action.payload]);
+    case DELETE_ALL_STUDENTS:
+      return {};
     default:
       return state;
   }
