@@ -11810,6 +11810,11 @@ styled-components@^4.0.2:
     stylis-rule-sheet "^0.0.10"
     supports-color "^5.5.0"
 
+styled-icons@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/styled-icons/-/styled-icons-3.6.0.tgz#c8a0f0811e09c42be0a5703cfdad79d21d4facef"
+  integrity sha512-Dt+0lwD0LBR1r8R3YQR0T9Dyg9sqqrSr28B0ypZ0tAtaP5XnZ8/PNut5FuCzw4mYTUQRZJEdm6r6PvSbdAJ6lw==
+
 styled-system@^3.1.11:
   version "3.1.11"
   resolved "https://registry.yarnpkg.com/styled-system/-/styled-system-3.1.11.tgz#a91a38cf7a0f0e625b897a04fdd506a359a3629f"
