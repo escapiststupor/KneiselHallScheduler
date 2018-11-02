@@ -5,7 +5,7 @@ export default function coachIDs(state = [], action) {
     case ADD_COACH:
       return [...state, action.payload.id];
     case DELETE_COACH:
-      return state.filter(id => id !== action.payload);
+      return state.filter(id => id !== action.payload.ID);
     case DELETE_ALL_COACHES:
       return [];
     default:

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addStudent, deleteStudent, deleteAllStudents } from '../../actions';
+import {
+  addStudent,
+  deleteStudent,
+  deleteAllStudents,
+} from '../../actions';
 import AddStudent from './AddStudent';
 
 class Students extends Component {
@@ -11,6 +15,7 @@ class Students extends Component {
       addStudent,
       deleteStudent,
       deleteAllStudents,
+      groupList,
     } = this.props;
     return (
       <React.Fragment>
@@ -23,7 +28,10 @@ class Students extends Component {
             student: {studentList[ID].name}
             instrument: {studentList[ID].instrument}
             delete:
-            <button type="button" onClick={() => deleteStudent(ID)}>
+            <button
+              type="button"
+              onClick={() => deleteStudent({ ID, groupList })}
+            >
               -
             </button>
           </div>
@@ -36,6 +44,7 @@ class Students extends Component {
 const mapStateToProps = state => ({
   studentList: state.students.studentList,
   studentIDs: state.students.studentIDs,
+  groupList: state.groups.groupList,
 });
 
 const mapDispatchToProps = {

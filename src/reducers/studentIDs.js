@@ -5,7 +5,7 @@ export default function studentIDs(state = [], action) {
     case ADD_STUDENT:
       return [...state, action.payload.id];
     case DELETE_STUDENT:
-      return state.filter(id => id !== action.payload);
+      return state.filter(id => id !== action.payload.ID);
     case DELETE_ALL_STUDENTS:
       return [];
     default:

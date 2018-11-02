@@ -9,7 +9,7 @@ export default function studentList(state = {}, action) {
         [action.payload.id]: action.payload,
       };
     case DELETE_STUDENT:
-      return omit(state, [action.payload]);
+      return omit(state, [action.payload.ID]);
     case DELETE_ALL_STUDENTS:
       return {};
     default:

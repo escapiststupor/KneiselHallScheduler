@@ -9,7 +9,7 @@ export default function coachList(state = {}, action) {
         [action.payload.id]: action.payload,
       };
     case DELETE_COACH:
-      return omit(state, [action.payload]);
+      return omit(state, [action.payload.ID]);
     case DELETE_ALL_COACHES:
       return {};
     default:

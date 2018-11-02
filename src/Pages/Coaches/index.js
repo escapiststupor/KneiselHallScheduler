@@ -11,6 +11,7 @@ class Coaches extends Component {
       addCoach,
       deleteCoach,
       deleteAllCoaches,
+      groupList,
     } = this.props;
     return (
       <React.Fragment>
@@ -24,7 +25,10 @@ class Coaches extends Component {
             coaches on: {coachList[ID].coachingDays}
             coaches in: {coachList[ID].room}
             delete:
-            <button type="button" onClick={() => deleteCoach(ID)}>
+            <button
+              type="button"
+              onClick={() => deleteCoach({ ID, groupList })}
+            >
               -
             </button>
           </div>
@@ -37,6 +41,7 @@ class Coaches extends Component {
 const mapStateToProps = state => ({
   coachList: state.coaches.coachList,
   coachIDs: state.coaches.coachIDs,
+  groupList: state.groups.groupList,
 });
 
 const mapDispatchToProps = {
