@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { colors } from '../style-variables';
 import Button from '../Button';
-import Tooltip from '../Tooltip';
 import { Spinner } from 'styled-icons/fa-solid';
 
 const STATUS = {
