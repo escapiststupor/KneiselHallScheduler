@@ -1,0 +1,32 @@
+---
+name: Select
+menu: Components
+---
+
+import { Playground, PropsTable } from 'docz'
+import Select from './index'
+
+# Select
+
+`<Select />` makes managing selections in React easier.
+
+### Best practices
+
+- Sort options (e.g. by alphabetical order) before plugging into this component so that user can find what they are looking for more easily.
+- Ensure that options all have distinct IDs.
+
+## Properties
+
+<PropsTable of={Select} />
+
+
+## Basic usage (controlled)
+
+<Playground>
+  <Select
+    title="who's smartest?"
+    options={[{ID: 'phyllis', text: 'Phyllis'}, {ID: 'phyllis_yen', text: 'Phyllis Yen'}]}
+    onChange={console.log}
+    value="phyllis"
+  />
+</Playground>

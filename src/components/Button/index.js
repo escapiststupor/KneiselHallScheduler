@@ -1,9 +1,12 @@
+import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { fontSize, space, display } from 'styled-system';
 import { colors } from '../style-variables';
 import { decideThemeFactory } from '../styled-utils';
 
 export const decideTheme = decideThemeFactory(['minor']);
+
 export const themes = {
   default: {
     bg: colors.black,
@@ -37,7 +40,7 @@ export const themes = {
   },
 };
 
-const Button = styled.button.attrs({
+const RawButton = styled.button.attrs({
   theme: props => themes[decideTheme(props)],
 })`
   display: flex;
@@ -46,7 +49,7 @@ const Button = styled.button.attrs({
   border-radius: 4px;
   cursor: pointer;
   outline: none !important;
-  transition: 0.3 background-color;
+  transition: 0.3 all;
   border-width: 1px;
   border-style: solid;
   user-select: none;
@@ -66,8 +69,6 @@ const Button = styled.button.attrs({
 
     &:hover {
       color: ${p.theme.hover.color};
-      box-shadow: 0 3px 0 0 ${p.theme.shadow};
-      transform: translateY(-1px);
     }
 
     &:active {
@@ -75,7 +76,7 @@ const Button = styled.button.attrs({
       background-color: ${p.theme.bg};
       color: ${p.theme.color};
       box-shadow: none;
-      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 ${p.theme.shadow};
     }
 
     ${p.disabled &&
@@ -99,5 +100,13 @@ const Button = styled.button.attrs({
     outline: none !important;
   }
 `;
+
+const Button = props => <RawButton {...props} />;
+
+Button.propTypes = {
+  /** The description for myProp */
+  disabled: PropTypes.bool,
+  minor: PropTypes.bool,
+};
 
 export default Button;

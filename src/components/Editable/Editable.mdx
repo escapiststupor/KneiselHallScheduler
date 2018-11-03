@@ -1,0 +1,43 @@
+---
+name: Editable
+menu: Components
+---
+
+import { Playground, PropsTable } from 'docz'
+import Editable from './index'
+import { fakeAPICall } from './utils'
+
+# Editable
+
+Editable make loading actions more obvious and remind users that something is ongoing.
+
+### Best practices
+
+- Whenever there is something going on that might take long (such as sending a network request, or performing a potentially time-consuming action), use a loading indicator.
+
+## Properties
+
+<PropsTable of={Editable} />
+
+## Basic usage
+
+<Playground>
+  <Editable
+    onConfirm={() => console.log('onConfirm')}
+    onEditStart={() => console.log('onEditStart')}
+  >
+    <div style={{ width: '300px', padding: '16px'}}>1234</div>
+  </Editable>
+</Playground>
+
+## with Async Process
+
+<Playground>
+    <Editable
+    onConfirm={() => console.log('onConfirm')}
+    onError={(e) => console.error(e)}
+    asyncProcessAfterSubmit={fakeAPICall}
+  >
+    <div style={{ width: '300px', padding: '16px'}}>1234</div>
+  </Editable>
+</Playground>
