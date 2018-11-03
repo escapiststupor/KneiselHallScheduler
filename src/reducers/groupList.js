@@ -8,11 +8,11 @@ import {
   DELETE_ALL_GROUPS,
   DELETE_COACH,
   DELETE_STUDENT,
+  CHANGE_COACH,
+  CHANGE_WORK,
+  DELETE_STUDENT_FROM_GROUP,
+  ADD_STUDENT_TO_GROUP,
 } from '../actions';
-// from UI
-
-import { SET_REHEARSAL_TIME, SET_COACHING_TIME } from '../actions';
-// set automatically
 
 export default function groupList(state = {}, action) {
   switch (action.type) {
@@ -44,6 +44,49 @@ export default function groupList(state = {}, action) {
       });
       return omit(state, groupID2Delete);
     }
+    case CHANGE_COACH: {
+      const { groupID, coachID } = action.payload;
+      return {
+        ...omit(state, [groupID]),
+        [groupID]: {
+          ...omit(state[groupID], ['coach']),
+          coach: coachID,
+        },
+      };
+    }
+    case CHANGE_WORK: {
+      const { groupID, work } = action.payload;
+      return {
+        ...omit(state, [groupID]),
+        [groupID]: {
+          ...omit(state[groupID], ['work']),
+          work,
+        },
+      };
+    }
+    case DELETE_STUDENT_FROM_GROUP: {
+      const { studentID, groupID } = action.payload;
+      return {
+        ...omit(state, [groupID]),
+        [groupID]: {
+          ...omit(state[groupID], ['members']),
+          members: state[groupID].members.filter(
+            memberID => memberID !== studentID
+          ),
+        },
+      };
+    }
+    case ADD_STUDENT_TO_GROUP: {
+      const { studentID, groupID } = action.payload;
+      return {
+        ...omit(state, [groupID]),
+        [groupID]: {
+          ...omit(state[groupID], ['members']),
+          members: [...state[groupID].members, studentID],
+        },
+      };
+    }
+
     default:
       return state;
   }

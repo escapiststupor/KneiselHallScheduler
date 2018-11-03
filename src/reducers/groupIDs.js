@@ -7,10 +7,6 @@ import {
   DELETE_COACH,
   DELETE_STUDENT,
 } from '../actions';
-// from UI
-
-import { SET_REHEARSAL_TIME, SET_COACHING_TIME } from '../actions';
-// set automatically
 
 export default function groupIDs(state = [], action) {
   switch (action.type) {
