@@ -3,13 +3,18 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Navigation from './Navigation';
 
 const GlobalStyle = createGlobalStyle`
-  body {
+  html {
     font-family: ${props => props.theme.fontFamily};
+    background-color: #fafafa;
+    margin: 0;
+    body {
+      margin: 0;
+    }
   }
 `;
 
 const App = () => (
-  <ThemeProvider theme={{ fontFamily: 'Helvetica Neue' }}>
+  <ThemeProvider theme={{ fontFamily: 'arial' }}>
     <React.Fragment>
       <Navigation />
       <GlobalStyle />
