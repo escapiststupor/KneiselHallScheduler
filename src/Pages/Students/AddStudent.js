@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { getHashID } from '../../utils';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
+import { Card, Title, Error } from '../../components/Common';
 
 const initialState = {
   name: '',
@@ -31,22 +34,25 @@ class AddStudent extends Component {
   render() {
     const { name, instrument, err } = this.state;
     return (
-      <div>
-        <input
-          placeholder="name"
+      <Card>
+        <Title m={1}>Add new student:</Title>
+        <Input
+          width={200}
+          placeholder="enter name"
           value={name}
           onChange={this.handleChangeField('name')}
+          m={3}
         />
-        <input
-          placeholder="instrument"
+        <Input
+          width={200}
+          placeholder="enter instrument"
           value={instrument}
           onChange={this.handleChangeField('instrument')}
+          m={3}
         />
-        <button type="button" onClick={this.onSave}>
-          add
-        </button>
-        <p>{err}</p>
-      </div>
+        <Button onClick={this.onSave}>add</Button>
+        {err && <Error>{err}</Error>}
+      </Card>
     );
   }
 }

@@ -1,41 +1,64 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { TrashAlt as Delete } from 'styled-icons/fa-solid';
+import Button from '../../components/Button';
+import Editable from '../../components/Editable';
+import Table from '../../components/Table';
+import { Title } from '../../components/Common';
 import {
   addStudent,
   deleteStudent,
   deleteAllStudents,
+  changeStudentName,
+  changeStudentInst,
 } from '../../actions';
 import AddStudent from './AddStudent';
 
 class Students extends Component {
-  render() {
+  renderTable = () => {
     const {
       studentList,
       studentIDs,
-      addStudent,
       deleteStudent,
-      deleteAllStudents,
       groupList,
+      changeStudentName,
+      changeStudentInst,
     } = this.props;
+    const data = {
+      headers: ['Name', 'instrument', 'delete'],
+      values: studentIDs.map(ID => ({
+        ID,
+        name: (
+          <Editable onConfirm={e => changeStudentName({ ID, name: e })}>
+            <div style={{ width: '100%', padding: '4px', outline: 'none' }}>
+              {studentList[ID].name}
+            </div>
+          </Editable>
+        ),
+        instrument: (
+          <Editable onConfirm={e => changeStudentInst({ ID, instrument: e })}>
+            <div style={{ width: '100%', padding: '4px', outline: 'none' }}>
+              {studentList[ID].instrument}
+            </div>
+          </Editable>
+        ),
+        delete: (
+          <Delete size={12} onClick={() => deleteStudent({ ID, groupList })} />
+        ),
+      })),
+    };
+    return <Table data={data} />;
+  };
+  render() {
+    const { addStudent, deleteAllStudents } = this.props;
     return (
       <React.Fragment>
         <AddStudent onAdd={addStudent} />
-        <button type="button" onClick={() => deleteAllStudents()}>
+        <Title m={3}>Students:</Title>
+        {this.renderTable()}
+        <Button m={3} onClick={() => deleteAllStudents()}>
           delete all
-        </button>
-        {studentIDs.map(ID => (
-          <div key={ID}>
-            student: {studentList[ID].name}
-            instrument: {studentList[ID].instrument}
-            delete:
-            <button
-              type="button"
-              onClick={() => deleteStudent({ ID, groupList })}
-            >
-              -
-            </button>
-          </div>
-        ))}
+        </Button>
       </React.Fragment>
     );
   }
@@ -51,6 +74,8 @@ const mapDispatchToProps = {
   addStudent,
   deleteStudent,
   deleteAllStudents,
+  changeStudentInst,
+  changeStudentName,
 };
 
 export default connect(
