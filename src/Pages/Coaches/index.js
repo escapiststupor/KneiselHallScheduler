@@ -1,38 +1,69 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addCoach, deleteCoach, deleteAllCoaches } from '../../actions';
+import { TrashAlt as Delete } from 'styled-icons/fa-solid';
+import Table from '../../components/Table';
+import Button from '../../components/Button';
+import Select from '../../components/Select';
+import Editable from '../../components/Editable';
+import { Title } from '../../components/Common';
+import {
+  addCoach,
+  deleteCoach,
+  deleteAllCoaches,
+  changeCoachName,
+  changeCoachingTime,
+} from '../../actions';
 import AddCoach from './AddCoach';
 
 class Coaches extends Component {
-  render() {
+  renderTable = () => {
     const {
       coachList,
       coachIDs,
-      addCoach,
       deleteCoach,
-      deleteAllCoaches,
       groupList,
+      changeCoachName,
+      changeCoachingTime,
     } = this.props;
+    const data = {
+      headers: ['Name', 'coaches on', 'delete'],
+      values: coachIDs.map(ID => ({
+        ID,
+        name: (
+          <Editable onConfirm={e => changeCoachName({ ID, name: e })}>
+            <div style={{ width: '100%', padding: '4px', outline: 'none' }}>
+              {coachList[ID].name}
+            </div>
+          </Editable>
+        ),
+        coachingDays: (
+          <Select
+            options={[
+              { ID: 'MW', text: 'Mon/Wed' },
+              { ID: 'TT', text: 'Tue/Thu' },
+            ]}
+            onChange={e => changeCoachingTime({ ID, coachingDays: e })}
+            value={coachList[ID].coachingDays}
+            width="100px"
+          />
+        ),
+        delete: (
+          <Delete size={12} onClick={() => deleteCoach({ ID, groupList })} />
+        ),
+      })),
+    };
+    return <Table data={data} />;
+  };
+  render() {
+    const { addCoach, deleteAllCoaches } = this.props;
     return (
       <React.Fragment>
         <AddCoach onAdd={addCoach} />
-        <button type="button" onClick={() => deleteAllCoaches()}>
+        <Title m={3}>Coaches:</Title>
+        {this.renderTable()}
+        <Button onClick={() => deleteAllCoaches()}>
           delete all
-        </button>
-        {coachIDs.map(ID => (
-          <div key={ID}>
-            teacher: {coachList[ID].name}
-            coaches on: {coachList[ID].coachingDays}
-            coaches in: {coachList[ID].room}
-            delete:
-            <button
-              type="button"
-              onClick={() => deleteCoach({ ID, groupList })}
-            >
-              -
-            </button>
-          </div>
-        ))}
+        </Button>
       </React.Fragment>
     );
   }
@@ -48,6 +79,8 @@ const mapDispatchToProps = {
   addCoach,
   deleteCoach,
   deleteAllCoaches,
+  changeCoachName,
+  changeCoachingTime,
 };
 
 export default connect(

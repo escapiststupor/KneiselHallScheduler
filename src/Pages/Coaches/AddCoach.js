@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
+import Select from '../../components/Select';
+import { Card, Title, Error } from '../../components/Common';
 import { getHashID } from '../../utils';
 
 const initialState = {
   name: '',
   coachingDays: 'MW',
-  room: '',
   err: '',
 };
 
@@ -15,8 +18,8 @@ class AddCoach extends Component {
     this.setState({ [fieldName]: e.target.value, err: '' });
 
   onSave = () => {
-    const { name, coachingDays, room } = this.state;
-    if (!name.trim() || !room.trim()) {
+    const { name, coachingDays } = this.state;
+    if (!name.trim()) {
       this.setState({ err: 'all fields required' });
       return;
     }
@@ -26,48 +29,35 @@ class AddCoach extends Component {
       id,
       name: name.trim(),
       coachingDays,
-      room: room.trim(),
     });
     this.setState(initialState);
   };
 
   render() {
-    const { name, coachingDays, room, err } = this.state;
+    const { name, coachingDays, err } = this.state;
     return (
-      <div>
-        <input
-          placeholder="name"
+      <Card>
+        <Title m={1}>Add new coach:</Title>
+        <Input
+          width={200}
+          placeholder="enter name"
           value={name}
           onChange={this.handleChangeField('name')}
+          m={1}
         />
-        <input
-          onChange={this.handleChangeField('coachingDays')}
-          type="radio"
-          id="MW"
-          name="coachingDays"
-          value="MW"
-          checked={coachingDays === 'MW'}
+        <Select
+          title="coaches on"
+          options={[
+            { ID: 'MW', text: 'Mon/Wed' },
+            { ID: 'TT', text: 'Tue/Thu' },
+          ]}
+          onChange={coachingDays => this.setState({ coachingDays })}
+          value={coachingDays}
+          m={1}
         />
-        <label htmlFor="MW">Mon/Wed</label>
-        <input
-          onChange={this.handleChangeField('coachingDays')}
-          type="radio"
-          id="TT"
-          name="coachingDays"
-          value="TT"
-          checked={coachingDays === 'TT'}
-        />
-        <label htmlFor="TT">Tue/Thu</label>
-        <input
-          placeholder="room"
-          value={room}
-          onChange={this.handleChangeField('room')}
-        />
-        <button type="button" onClick={this.onSave}>
-          add
-        </button>
-        <p>{err}</p>
-      </div>
+        <Button onClick={this.onSave}>add</Button>
+        {err && <Error>{err}</Error>}
+      </Card>
     );
   }
 }
