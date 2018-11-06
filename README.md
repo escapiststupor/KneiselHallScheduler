@@ -1,5 +1,5 @@
 # 🎼 ♫ Kneisel Hall Scheduling Software ♫ ♪
-This app is deployed [here] (http://rejectedpromise.me/kneisel-hall-scheduler/).
+This app is deployed [here](http://rejectedpromise.me/kneisel-hall-scheduler/).
 
 Rumor has it that a leading chamber music festival always comes with leading technology...
 
@@ -23,7 +23,6 @@ The "database" are stored in `localStorage` under the key `KH_DB`.
 In the project directory, you can run:
 
 ### `yarn start`
-
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
@@ -45,7 +44,7 @@ Your app is ready to be deployed!
 
 ### `yarn run deploy`
 
-Automatically pushes the build files to `gh-pages` branch and deploy it to `http://escapiststupor.github.io/kneisel-hall-scheduler/`.
+Automatically pushes the build files to `gh-pages` branch and deploy it to [http://escapiststupor.github.io/kneisel-hall-scheduler/](http://escapiststupor.github.io/kneisel-hall-scheduler/).
 
 ### `yarn run eject`
 
