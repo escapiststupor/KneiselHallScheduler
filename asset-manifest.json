@@ -1,0 +1,11 @@
+{
+  "main.js": "/kneisel-hall-scheduler/static/js/main.e17ac68d.chunk.js",
+  "main.js.map": "/kneisel-hall-scheduler/static/js/main.e17ac68d.chunk.js.map",
+  "static/js/1.99ebb5fc.chunk.js": "/kneisel-hall-scheduler/static/js/1.99ebb5fc.chunk.js",
+  "static/js/1.99ebb5fc.chunk.js.map": "/kneisel-hall-scheduler/static/js/1.99ebb5fc.chunk.js.map",
+  "runtime~main.js": "/kneisel-hall-scheduler/static/js/runtime~main.9f4cb1a7.js",
+  "runtime~main.js.map": "/kneisel-hall-scheduler/static/js/runtime~main.9f4cb1a7.js.map",
+  "index.html": "/kneisel-hall-scheduler/index.html",
+  "precache-manifest.e3f38a72ef947ba0f0f90ab224b41f31.js": "/kneisel-hall-scheduler/precache-manifest.e3f38a72ef947ba0f0f90ab224b41f31.js",
+  "service-worker.js": "/kneisel-hall-scheduler/service-worker.js"
+}
