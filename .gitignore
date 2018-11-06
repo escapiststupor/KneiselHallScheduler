@@ -1,0 +1,11 @@
+.vscode
+.DS_Store
+*.log
+package-lock.json
+
+node_modules
+
+coverage
+/public
+.cache
+.docz

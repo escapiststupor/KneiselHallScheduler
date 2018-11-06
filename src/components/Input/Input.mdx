@@ -1,0 +1,31 @@
+---
+name: Input
+menu: Components
+---
+
+import { Playground, PropsTable } from 'docz'
+import Input from './index'
+
+# Input
+
+Inputs make loading actions more obvious and remind users that something is ongoing.
+
+### Best practices
+
+- Whenever there is something going on that might take long (such as sending a network request, or performing a potentially time-consuming action), use a loading indicator.
+
+## Properties
+
+<PropsTable of={Input} />
+
+## Number Input
+
+<Playground>
+  <Input width={200} type="number" />
+</Playground>
+
+## Text Input
+
+<Playground>
+  <Input width={200} type="text" />
+</Playground>
