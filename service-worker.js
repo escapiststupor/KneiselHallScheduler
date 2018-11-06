@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/kneisel-hall-scheduler/precache-manifest.e3f38a72ef947ba0f0f90ab224b41f31.js"
+  "/kneisel-hall-scheduler/precache-manifest.2a74a96fa8d0b1e18314058b1caa2a68.js"
 );
 
 workbox.clientsClaim();
