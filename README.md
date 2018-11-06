@@ -1,5 +1,5 @@
 # 🎼 ♫ Kneisel Hall Scheduling Software ♫ ♪
-
+This app is deployed [here] (http://rejectedpromise.me/kneisel-hall-scheduler/).
 
 Rumor has it that a leading chamber music festival always comes with leading technology...
 
@@ -43,7 +43,9 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `yarn run deploy`
+
+Automatically pushes the build files to `gh-pages` branch and deploy it to `http://escapiststupor.github.io/kneisel-hall-scheduler/`.
 
 ### `yarn run eject`
 
