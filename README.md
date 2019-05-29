@@ -1,5 +1,5 @@
 # 🎼 ♫ Kneisel Hall Scheduling Software ♫ ♪
-This app is deployed [here](http://rejectedpromise.me/kneisel-hall-scheduler/).
+This app is deployed [here](https://escapiststupor.github.io/kneisel-hall-scheduler/).
 
 Rumor has it that a leading chamber music festival always comes with leading technology...
 
